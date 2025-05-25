@@ -64,24 +64,32 @@ section:nth-child(6) { animation-delay: 0.8s; }
 section:nth-child(7) { animation-delay: 1s; }
 section:nth-child(8) { animation-delay: 1.2s; }
 
-/* Layout miks për seksione çift */
+/* Layout miks për seksionet çift */
 section:nth-child(even) {
     display: flex;
-    gap: 30px;
-    align-items: center;
+    gap: 0;
+    align-items: stretch;
     flex-wrap: wrap;
+    flex-direction: row-reverse;
 }
 
 section:nth-child(even) img {
-    width: 45%;
-    max-height: 300px;
+    width: 50%;
+    height: auto;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 0 15px 15px 0;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 section:nth-child(even) p {
     width: 50%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 15px 0 0 15px;
+    box-sizing: border-box;
 }
 
 /* Layout për seksionet tek */
@@ -126,5 +134,30 @@ footer {
     to {
         opacity: 1;
         transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE - Mobile */
+@media (max-width: 768px) {
+    section:nth-child(even) {
+        flex-direction: column;
+    }
+
+    section:nth-child(even) img,
+    section:nth-child(even) p {
+        width: 100%;
+        border-radius: 15px;
+    }
+
+    section:nth-child(even) p {
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li a {
+        text-align: center;
     }
 }
