@@ -1,0 +1,130 @@
+/* Font & baza */
+body {
+    font-family: 'Georgia', serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #026196, #df3b07);
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* Navigacioni */
+nav {
+    background-color: #333;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
+/* Seksione */
+section {
+    padding: 50px 10%;
+    border-bottom: 1px solid #ddd;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease forwards;
+}
+
+/* Efekt i vonuar për çdo seksion */
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.6s; }
+section:nth-child(6) { animation-delay: 0.8s; }
+section:nth-child(7) { animation-delay: 1s; }
+section:nth-child(8) { animation-delay: 1.2s; }
+
+/* Layout miks për seksione çift */
+section:nth-child(even) {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+section:nth-child(even) img {
+    width: 45%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+section:nth-child(even) p {
+    width: 50%;
+}
+
+/* Layout për seksionet tek */
+section:nth-child(odd) img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover efekt për imazhet */
+section img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Titujt e seksioneve */
+section h2 {
+    color: #026196;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+/* Footer */
+footer {
+    background-color: #026196;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    margin-top: 40px;
+}
+
+/* Animacion fade-in-up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
