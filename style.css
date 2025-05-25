@@ -47,8 +47,11 @@ nav ul li a:hover {
     background-color: #555;
 }
 
-/* Seksione */
+/* Seksione bazë */
 section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
     padding: 50px 10%;
     border-bottom: 1px solid #ddd;
     opacity: 0;
@@ -56,53 +59,37 @@ section {
     animation: fadeInUp 1s ease forwards;
 }
 
-/* Efekt i vonuar për çdo seksion */
-section:nth-child(3) { animation-delay: 0.2s; }
-section:nth-child(4) { animation-delay: 0.4s; }
-section:nth-child(5) { animation-delay: 0.6s; }
-section:nth-child(6) { animation-delay: 0.8s; }
-section:nth-child(7) { animation-delay: 1s; }
-section:nth-child(8) { animation-delay: 1.2s; }
+/* Alternimi i drejtimit */
+section:nth-child(odd) {
+    flex-direction: row;
+}
 
-/* Layout miks për seksionet çift */
 section:nth-child(even) {
-    display: flex;
-    gap: 0;
-    align-items: stretch;
-    flex-wrap: wrap;
     flex-direction: row-reverse;
 }
 
-section:nth-child(even) img {
+/* Përmbajtja (teksti) */
+section .content {
     width: 50%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0 15px 15px 0;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-section:nth-child(even) p {
-    width: 50%;
-    margin: 0;
+    padding: 30px;
     display: flex;
     align-items: center;
-    padding: 30px;
     background-color: #ffffff;
-    border-radius: 15px 0 0 15px;
+    border-radius: 15px;
     box-sizing: border-box;
 }
 
-/* Layout për seksionet tek */
-section:nth-child(odd) img {
-    width: 100%;
-    max-height: 300px;
+/* Imazhi */
+section img {
+    width: 50%;
     object-fit: cover;
+    height: auto;
+    max-height: 400px;
     border-radius: 15px;
-    margin-bottom: 20px;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* Hover efekt për imazhet */
+/* Efekte mbi foto */
 section img:hover {
     transform: scale(1.03);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -125,7 +112,7 @@ footer {
     margin-top: 40px;
 }
 
-/* Animacion fade-in-up */
+/* Animacion fade-in */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -137,20 +124,28 @@ footer {
     }
 }
 
-/* RESPONSIVE - Mobile */
+/* Animacion me vonesë progresive */
+section:nth-child(3) { animation-delay: 0.2s; }
+section:nth-child(4) { animation-delay: 0.4s; }
+section:nth-child(5) { animation-delay: 0.6s; }
+section:nth-child(6) { animation-delay: 0.8s; }
+section:nth-child(7) { animation-delay: 1s; }
+section:nth-child(8) { animation-delay: 1.2s; }
+
+/* Responsivitet */
 @media (max-width: 768px) {
-    section:nth-child(even) {
-        flex-direction: column;
+    section {
+        flex-direction: column !important;
+        padding: 30px 5%;
     }
 
-    section:nth-child(even) img,
-    section:nth-child(even) p {
+    section img, section .content {
         width: 100%;
         border-radius: 15px;
     }
 
-    section:nth-child(even) p {
-        padding: 20px;
+    section img {
+        max-height: 250px;
     }
 
     nav ul {
